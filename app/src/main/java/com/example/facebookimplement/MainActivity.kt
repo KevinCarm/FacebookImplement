@@ -49,8 +49,6 @@ class MainActivity : AppCompatActivity() {
         video.isEnabled = isLoggedIn
 
         setup()
-
-
     }
 
     private fun setup() {
