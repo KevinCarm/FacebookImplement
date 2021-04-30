@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.AccessToken
+
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -121,14 +122,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun takePhotoFromGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "image/*"
+            .apply {
+                type = "image/*"
+            }
         startActivityForResult(Intent.createChooser(intent, "Selecciona imagen"), CODE_GALLERY)
     }
 
     private fun takeVideoFromGallery() {
         val intent = Intent()
-        intent.type = "video/*"
-        intent.action = Intent.ACTION_PICK
+            .apply {
+                type = "video/*"
+                action = Intent.ACTION_PICK
+            }
         startActivityForResult(Intent.createChooser(intent, "Select Video"), CODE_VIDEO)
     }
 
